@@ -93,4 +93,9 @@ cask 'java' do
 
       https://www.oracle.com/technetwork/java/javase/terms/license/index.html
   EOS
+
+  test do
+    system 'java -version 2> /dev/null'
+    assert_match $?.exitstatus, 0
+  end
 end
